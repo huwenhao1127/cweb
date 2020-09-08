@@ -1,0 +1,6 @@
+/root/cweb/build/CMakeFiles/rebuild_cache.dir
+/root/cweb/build/CMakeFiles/test_client.dir
+/root/cweb/build/CMakeFiles/test_server.dir
+/root/cweb/build/CMakeFiles/test.dir
+/root/cweb/build/CMakeFiles/edit_cache.dir
+/root/cweb/build/CMakeFiles/cweb.dir

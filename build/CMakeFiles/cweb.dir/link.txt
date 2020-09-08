@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -g -o -fPIC -std=c++11 -Wall -Werror -lpthread  -shared -Wl,-soname,libcweb.so -o ../lib/libcweb.so CMakeFiles/cweb.dir/src/http_conn.cc.o CMakeFiles/cweb.dir/src/mutex.cc.o 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -o -fPIC -std=c++11 -Wall -Werror -lpthread  -rdynamic CMakeFiles/test_server.dir/tests/test_chat_serv.cc.o  -o ../bin/test_server 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -o -fPIC -std=c++11 -Wall -Werror -lpthread  -rdynamic CMakeFiles/test.dir/tests/test_web.cc.o  -o ../bin/test  -Wl,-rpath,/root/cweb/lib ../lib/libcweb.so 

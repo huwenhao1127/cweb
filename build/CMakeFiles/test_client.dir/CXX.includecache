@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/cweb/tests/test_chat_client.cc
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+assert.h
+-
+stdio.h
+-
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+poll.h
+-
+fcntl.h
+-
+

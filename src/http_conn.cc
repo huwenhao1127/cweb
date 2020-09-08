@@ -65,6 +65,7 @@ void HTTPCONN::init(int sockfd, const sockaddr_in& addr) {
     //int reuse = 1;
     //setsockopt(m_sockfd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
 
+    // 注册读事件
     addfd(m_epollfd, m_sockfd, true);
     m_user_count++;
 
@@ -103,18 +104,16 @@ void HTTPCONN::close_conn(bool real_close) {
 // 由线程池中工作线程调用,处理http请求的入口函数
 void HTTPCONN::process() {
     HTTPCONN::HTTP_CODE read_ret = process_read();
-    // printf("read ret: %d\n", read_ret);
-
     if(read_ret == NO_REQUEST) {
         modfd(m_epollfd, m_sockfd, EPOLLIN);
         return;
     }
 
     bool write_ret = process_write(read_ret);
-    // printf("flag: %d\n", write_ret);
     if(!write_ret) {
         close_conn(true);
     }
+    // 注册写完成事件
     modfd(m_epollfd, m_sockfd, EPOLLOUT);
 }
 

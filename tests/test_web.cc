@@ -112,7 +112,6 @@ int main(int argc, char* argv[])
                 }
                 // 初始化客户链接
                 users[connfd].init(connfd, client_address);
-                //printf("\nclient link success\n");
             } else if(events[i].events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR)) {
                 // 有异常直接关闭
                 users[sockfd].close_conn();
@@ -124,11 +123,8 @@ int main(int argc, char* argv[])
                     users[sockfd].close_conn();
                 }
             }  else if(events[i].events & EPOLLOUT) {
-                //printf("write event.\n");
                 // 根据写的结果,决定是否关闭链接
                 bool ret = users[sockfd].write();
-                // printf("write ret: %d\n", ret);
-                // users[sockfd].close_conn();
                 if(!ret) {
                     users[sockfd].close_conn();
                 }

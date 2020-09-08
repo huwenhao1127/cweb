@@ -17,7 +17,7 @@ class ThreadPool {
 public:
     typedef cweb::Mutex Mutex;
     // 输入参数是线程数和请求队列的最大长度
-    ThreadPool(int thread_number = 10, int max_requests = 65536);
+    ThreadPool(int thread_number = 16, int max_requests = 50);
     ~ThreadPool();
     bool append(T* request);
 private:
@@ -50,7 +50,7 @@ ThreadPool<T>::ThreadPool(int thread_number, int max_requests)
 
     // 创建线程池,并将它们设置为脱离线程
     for(int i = 0; i < thread_number; ++i) {
-        printf("create the %dth threads\n", thread_number);
+        printf("create the %dth threads\n", i);
         
         if(pthread_create(m_threads + i, NULL, worker, this)) {
             delete [] m_threads;
